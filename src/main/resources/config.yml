@@ -1,0 +1,15 @@
+baseUri: https://api.openweathermap.org/data/2.5/
+expRespTime: 5000
+pathToWeather: weather
+appid: 89a2ed8a594cc497a6273490e7ca59dd
+paramNameCityName: q
+paramNameCityId: id
+paramNameCityLon: lon
+paramNameCityLat: lat
+bodyPathToCityName: name
+bodyPathToWind: wind.
+bodyPathToSpeed: speed
+bodyPathToCoord: coord.
+bodyPathToCod: cod
+badRequestCod: 400
+notFoundCod: 404
