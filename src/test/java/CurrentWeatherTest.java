@@ -8,6 +8,19 @@ import static io.restassured.RestAssured.given;
 
 public class CurrentWeatherTest extends TestBase {
 
+    @Test
+    @Tag("weather")
+    @Tag("responseBodyValidation")
+    @Tag("regressionBig")
+    void validateCityDetailsByCityId() {
+
+        given().
+                spec(WeatherReq.getWeatherInfoByCityId(Cities.GDANSK)).
+        when().
+                get().
+        then().
+                spec(WeatherResp.expectCityDetailsToBe(Cities.GDANSK));
+    }
 
     @Test
     @Tag("weather")
@@ -65,6 +78,8 @@ public class CurrentWeatherTest extends TestBase {
         then().
                 spec(WeatherResp.expectBadRequestResponse());
     }
+
+
 
 
 }
