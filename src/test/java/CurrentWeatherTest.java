@@ -1,56 +1,63 @@
 import enums.Cities;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
 import weatherCurrent.WeatherReq;
 import weatherCurrent.WeatherResp;
 
 import static io.restassured.RestAssured.given;
+import static org.junit.jupiter.params.provider.EnumSource.Mode.EXCLUDE;
 
 public class CurrentWeatherTest extends TestBase {
 
-    @Test
+    @ParameterizedTest
+    @EnumSource(value = Cities.class,mode = EXCLUDE, names = {"INVALID"})
     @Tag("weather")
     @Tag("responseBodyValidation")
     @Tag("regressionBig")
-    void validateCityDetailsByCityId() {
+    void validateCityDetailsByCityId(Cities cities) {
 
         given().
-                spec(WeatherReq.getWeatherInfoByCityId(Cities.GDANSK)).
+                spec(WeatherReq.getWeatherInfoByCityId(cities)).
         when().
                 get().
         then().
-                spec(WeatherResp.expectCityDetailsToBe(Cities.GDANSK));
+                spec(WeatherResp.expectCityDetailsToBe(cities));
     }
 
-    @Test
+    @ParameterizedTest
+    @EnumSource(value = Cities.class,mode = EXCLUDE, names = {"INVALID"})
     @Tag("weather")
     @Tag("responseBodyValidation")
     @Tag("regressionSmall")
-    void validateCityName() {
+    void validateCityName(Cities cities) {
 
         given().
-                spec(WeatherReq.getWeatherInfoByCityName(Cities.OXFORD)).
+                spec(WeatherReq.getWeatherInfoByCityName(cities)).
         when().
                 get().
         then().
-                spec(WeatherResp.expectCityNameToBe(Cities.OXFORD));
+                spec(WeatherResp.expectCityNameToBe(cities));
     }
 
-    @Test
+    @ParameterizedTest()
+    @EnumSource(value = Cities.class,mode = EXCLUDE, names = {"INVALID"})
     @Tag("weather")
     @Tag("responseBodyValidation")
     @Tag("regressionSmall")
-    void validateCityCoordinates() {
+    void validateCityCoordinates(Cities cities) {
 
         given().
-                spec(WeatherReq.getWeatherByCoordinates(Cities.LONDON)).
+                spec(WeatherReq.getWeatherByCoordinates(cities)).
         when().
                 get().
         then().
-                spec(WeatherResp.expectCityCoordinatesToBe(Cities.LONDON));
+                spec(WeatherResp.expectCityCoordinatesToBe(cities));
     }
 
-    @Test
+    @ParameterizedTest()
+    @EnumSource(value = Cities.class,mode = EXCLUDE, names = {"INVALID"})
     @Tag("weather")
     @Tag("responseBodyValidation")
     @Tag("regressionBig")
