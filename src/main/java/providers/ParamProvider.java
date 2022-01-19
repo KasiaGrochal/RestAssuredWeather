@@ -19,5 +19,6 @@ public class ParamProvider {
     protected static final String COORD = config.get("bodyPathToCoord");
     protected static final String COD = config.get("bodyPathToCod");
     protected static final String BADREQUEST = config.get("badRequestCod");
+    protected static final String SUCCESS = config.get("OkResponseCod");
 
 }

@@ -29,9 +29,5 @@ public class WeatherResp extends CommonResponses {
                 build().spec(isStatus200());
     }
 
-    public static ResponseSpecification expectBadRequestResponse() {
-        return new ResponseSpecBuilder().
-                expectBody(COD, equalTo(BADREQUEST)).
-                build().spec(isStatus400());
-    }
+
 }

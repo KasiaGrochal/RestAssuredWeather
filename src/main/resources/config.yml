@@ -12,4 +12,5 @@ bodyPathToSpeed: speed
 bodyPathToCoord: coord.
 bodyPathToCod: cod
 badRequestCod: 400
+OkResponseCod: 200
 notFoundCod: 404
