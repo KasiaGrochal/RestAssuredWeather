@@ -17,9 +17,9 @@ public class CurrentWeatherTest extends TestBase {
 
         given().
                 spec(WeatherReq.getWeatherInfoByCityName(Cities.OXFORD)).
-                when().
+        when().
                 get().
-                then().
+        then().
                 spec(WeatherResp.expectCityNameToBe(Cities.OXFORD));
     }
 
@@ -31,9 +31,9 @@ public class CurrentWeatherTest extends TestBase {
 
         given().
                 spec(WeatherReq.getWeatherByCoordinates(Cities.LONDON)).
-                when().
+        when().
                 get().
-                then().
+        then().
                 spec(WeatherResp.expectCityCoordinatesToBe(Cities.LONDON));
     }
 
@@ -46,9 +46,9 @@ public class CurrentWeatherTest extends TestBase {
 
         given().
                 spec(WeatherReq.getWeatherInfoByCityId(Cities.GDANSK)).
-                when().
+        when().
                 get().
-                then().
+        then().
                 spec(WeatherResp.expectWindToBeLessThan(MAXWIND));
     }
 
@@ -60,9 +60,9 @@ public class CurrentWeatherTest extends TestBase {
 
         given().
                 spec(WeatherReq.getWeatherInfoByCityId(Cities.INVALID)).
-                when().
+        when().
                 get().
-                then().
+        then().
                 spec(WeatherResp.expectBadRequestResponse());
     }
 
