@@ -22,7 +22,6 @@ public class TestBase {
         config = Config.getEnvironmentConfig().getProperties();
         RestAssured.requestSpecification = getCommonReqSpec();
         RestAssured.responseSpecification = getCommonRespSpec();
-        RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
     }
 
 
@@ -30,7 +29,8 @@ public class TestBase {
         return new RequestSpecBuilder().
                 setBaseUri(config.get("baseUri")).
                 addParam("appid", config.get("appid")).
-                build();
+                build().
+                filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
     }
 
     public static ResponseSpecification getCommonRespSpec() {
