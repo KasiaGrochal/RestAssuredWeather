@@ -38,7 +38,7 @@ public class CurrentWeatherTest extends TestBase {
         when().
                 get().
         then().
-                spec(WeatherResp.expectCityNameToBe(cities));
+                spec(WeatherResp.expectCityCoordinatesToBe(cities));
     }
 
     @ParameterizedTest()
@@ -53,7 +53,7 @@ public class CurrentWeatherTest extends TestBase {
         when().
                 get().
         then().
-                spec(WeatherResp.expectCityCoordinatesToBe(cities));
+                spec(WeatherResp.expectCityNameToBe(cities));
     }
 
     @ParameterizedTest()
