@@ -61,11 +61,11 @@ public class CurrentWeatherTest extends TestBase {
     @Tag("weather")
     @Tag("responseBodyValidation")
     @Tag("regressionBig")
-    void validateWindValue() {
+    void validateWindValue(Cities cities) {
         Float MAXWIND = 100F;
 
         given().
-                spec(WeatherReq.getWeatherInfoByCityId(Cities.GDANSK)).
+                spec(WeatherReq.getWeatherInfoByCityId(cities)).
         when().
                 get().
         then().
